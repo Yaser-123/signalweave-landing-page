@@ -63,7 +63,7 @@ export function Pricing({
   }
 
   return (
-    <div className="container py-20">
+    <div className="container mx-auto px-4 py-20">
       <div className="text-center space-y-4 mb-12">
         <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">{title}</h2>
         
@@ -80,7 +80,7 @@ export function Pricing({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 sm:2 gap-4">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 overflow-visible md:grid-cols-3 md:gap-4">
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -90,7 +90,7 @@ export function Pricing({
                 ? {
                     y: plan.isPopular ? -20 : 0,
                     opacity: 1,
-                    x: index === 2 ? -30 : index === 0 ? 30 : 0,
+                    x: index === 2 ? -20 : index === 0 ? 20 : 0,
                     scale: index === 0 || index === 2 ? 0.94 : 1.0,
                   }
                 : {}
@@ -109,11 +109,11 @@ export function Pricing({
               plan.isPopular ? "border-blue-400 border-2" : "border-white/20",
               "flex flex-col",
               !plan.isPopular && "mt-5",
-              index === 0 || index === 2
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[10deg]"
-                : "z-10",
-              index === 0 && "origin-right",
-              index === 2 && "origin-left",
+              index === 0
+                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[8deg] origin-right"
+                : index === 2
+                  ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] -rotate-y-[8deg] origin-left"
+                  : "z-10",
             )}
           >
             {plan.isPopular && (
