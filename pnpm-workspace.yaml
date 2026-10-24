@@ -1,0 +1,5 @@
+packages:
+  - '.'
+
+overrides:
+  motion-dom: 12.23.12
